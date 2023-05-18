@@ -24,7 +24,7 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker push $DOCKERHUB_USER/$REPO_NAME:latest
-      - echo "[{\"name\":\"$TASK_NAME\",\"imageUri\":\"$DOCKERHUB_USER/$REPO_NAME:latest\"}]" > imagedefinitions.json
+      - echo "[{\"name\":\"$TASK_NAME\",\"imageUri\":\"$DOCKERHUB_USER/$REPO_NAME:latest\"}]" > image_definitions.json
 
 artifacts:
-  files: imagedefinitions.json
+  files: image_definitions.json
