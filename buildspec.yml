@@ -3,7 +3,7 @@ version: 0.2
 env:
   variables:
     REPO_NAME: "ecs-test"
-    TASK_NAME: "ecs-test-1"
+    TASK_NAME: "ecs-test"
   secrets-manager:
     DOCKERHUB_USER: "ecs-test-key:username"
     DOCKERHUB_PASS: "ecs-test-key:password"
