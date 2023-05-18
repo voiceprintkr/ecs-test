@@ -1,6 +1,10 @@
 version: 0.2
 
 env:
+  variables:
+    USER_NAME: "voiceprint"
+    REPO_NAME: "ecs-test"
+    TASK_NAME: "ecs-test-1"
   secrets-manager:
     DOCKERHUB_USER: "ecs-test-key:username"
     DOCKERHUB_PASS: "ecs-test-key:password"
@@ -14,10 +18,14 @@ phases:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...          
-      - docker build -t ecs-test:latest .
-      - docker tag ecs-test:latest voiceprint/ecs-test:latest      
+      - docker build -t $REPO_NAME:latest .
+      - docker tag $REPO_NAME:latest $USER_NAME/$REPO_NAME:latest      
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push voiceprint/ecs-test:latest
+      - docker push $USER_NAME/$REPO_NAME:latest
+      - echo "[{\"name\":\"$TASK_NAME\",\"imageUri\":\"$USER_NAME/$REPO_NAME:latest\"}]" > imagedefinitions.json
+
+artifacts:
+  files: imagedefinitions.json
