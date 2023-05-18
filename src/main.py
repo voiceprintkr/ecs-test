@@ -11,7 +11,7 @@ app = FastAPI()
 @app.get("/", response_class=ORJSONResponse)
 async def main() -> ORJSONResponse:
     _hostname: str = os.uname().nodename
-    _version: str = "v1.0.0"
+    _version: str = "v2.0.0"
 
     _body: dict = {
         "Hostname": _hostname,
