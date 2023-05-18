@@ -1,9 +1,15 @@
 version: 0.2
 
+env:
+  secrets-manager:
+    DOCKERHUB_USER: "ecs-test-key:username"
+    DOCKERHUB_PASS: "ecs-test-key:password"
+
 phases:
   pre_build:
     commands:
-      - echo Hello...
+      - echo Logging in to Docker Hub...
+      - docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
   build:
     commands:
       - echo Build started on `date`
