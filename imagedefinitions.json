@@ -1,0 +1,6 @@
+[
+    {
+    	"name": "ecs-test-1",
+	"imageUri": "voiceprint/ecs-test:latest"
+    }
+]
