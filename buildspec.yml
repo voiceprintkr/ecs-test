@@ -5,8 +5,8 @@ env:
     REPO_NAME: "ecs-test"
     TASK_NAME: "ecs-test"
   secrets-manager:
-    DOCKERHUB_USER: "ecs-test-key:username"
-    DOCKERHUB_PASS: "ecs-test-key:password"
+    DOCKERHUB_USER: "gempik-docker-key:username"
+    DOCKERHUB_PASS: "gempik-docker-key:password"
 
 phases:
   pre_build:
