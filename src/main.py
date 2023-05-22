@@ -6,12 +6,24 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.responses import ORJSONResponse
 
 app = FastAPI()
+_version: str = "v1.0.0"
 
 
 @app.get("/", response_class=ORJSONResponse)
+async def healthz() -> ORJSONResponse:
+    _body: dict = {
+        "Health": "Nice",
+    }
+
+    return ORJSONResponse(
+        content=jsonable_encoder(obj=_body),
+        status_code=status.HTTP_200_OK,
+    )
+
+
+@app.get(f"/{_version.split('.')[0]}/", response_class=ORJSONResponse)
 async def main() -> ORJSONResponse:
     _hostname: str = os.uname().nodename
-    _version: str = "v4.0.0"
 
     _body: dict = {
         "Hostname": _hostname,
