@@ -1,0 +1,6 @@
+[
+  {
+    "name": "fargate-task-definition",
+    "imageUri": "voiceprint/ecs-test:latest"
+  }
+]
