@@ -6,7 +6,7 @@ from fastapi.encoders import jsonable_encoder
 from fastapi.responses import ORJSONResponse
 
 app = FastAPI()
-_version: str = "v1.0.0"
+_version: str = "v2.0.0"
 
 
 @app.get("/", response_class=ORJSONResponse)
