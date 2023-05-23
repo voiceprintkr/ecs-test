@@ -1,6 +1,6 @@
 [
   {
-    "name": "fargate-task-definition",
+    "name": "fargate-task-container",
     "imageUri": "voiceprint/ecs-test:latest"
   }
 ]
